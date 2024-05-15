@@ -1,6 +1,7 @@
 #include <iostream>
 #include <SDL.h>
 #include <SDL_image.h>
+#include <SDL_mixer.h>
 #include "graphics.h"
 #include "defs.h"
 #include "logic.h"
@@ -43,12 +44,8 @@ int main(int argc, char *argv[])
             game.Barra.clear();
             game.Orca.clear();
             game.Marlin.clear();
+            game.Bomb.clear();
         }
-        if(game.status == 2) {
-            menu.drawHighscore(graphics);
-            menu.doHighscore(game, graphics);
-        }
-
         if(game.status == 1) {
             graphics.renderTexture(background, 0, 0);
             game.drawGame(graphics);
@@ -67,11 +64,16 @@ int main(int argc, char *argv[])
                         break;
                     case SDL_MOUSEBUTTONDOWN:
                         if ( mouse_x >= SCREEN_WIDTH/2 && mouse_x <= SCREEN_WIDTH/2 + 30 && mouse_y >= 10 && mouse_y <= 40){
+                            Mix_HaltMusic();
                             game.status = 3;
                         }
                     break;
                 }
             }
+        }
+        if(game.status == 2) {
+            menu.drawOption(graphics);
+            menu.doOption1(game, graphics);
         }
         if(game.status == 3) {
             menu.drawPause(graphics);
@@ -79,9 +81,16 @@ int main(int argc, char *argv[])
         }
         if(game.status == 4) {
             menu.drawGameover(graphics);
-            menu.doGameover(game, graphics);
+            menu.doGameoverandWin(game, graphics);
         }
-        cout << game.health;
+        if(game.status == 5) {
+            menu.drawWingame(graphics);
+            menu.doGameoverandWin(game, graphics);
+        }
+        if(game.status == 6) {
+            menu.drawOption(graphics);
+            menu.doOption2(game, graphics);
+        }
         graphics.presentScene();
         SDL_Delay(10);
     }

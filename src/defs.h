@@ -11,8 +11,14 @@
 #define SCORE_IMG "text\\Score.ttf"
 #define TITLE_IMG "text\\gametitle.ttf"
 #define GAMEOVER_IMG "text\\GameOver.ttf"
-
+#define WINSCORE 1000
 #define HEALTH 100
+#define SCORE_BARRA 100
+#define SCORE_ORCA 300
+#define SCORE_MARLIN 500
+#define SCORE_LIONFISH 700
+#define SCORE_SHARK 900
+#define DIS_BOMB 150
 
 const int minnowposx[2] = {0,SCREEN_WIDTH};
 const char*  PLAYER_SPRITE_FILE = "image\\Player.png";
@@ -231,4 +237,81 @@ const int MARLIN_CLIPS_RIGHT[][4] = {
     {1680, 0, 120, 86},
 };
 const int MARLIN_FRAMES_RIGHT = sizeof(MARLIN_CLIPS_RIGHT)/sizeof(int)/4;
+
+const char*  SHARK_SPRITE_FILE = "image\\Shark.png";
+const int SHARK_CLIPS[][4] = {
+    {0, 0, 110, 46},
+    {110, 0, 110, 46},
+    {220, 0, 110, 46},
+    {330, 0, 110, 46},
+    {440, 0, 110, 46},
+    {550, 0, 110, 46},
+    {660, 0, 110, 46},
+    {770, 0, 110, 46},
+    {880, 0, 110, 46},
+    {990, 0, 110, 46},
+    {1100, 0, 110, 46},
+    {1210, 0, 110, 46},
+    {1320, 0, 110, 46},
+    {1430, 0, 110, 46},
+};
+const int SHARK_FRAMES = sizeof(SHARK_CLIPS)/sizeof(int)/4;
+
+const char*  SHARK_SPRITE_FILE_RIGHT = "image\\SharkRight.png";
+const int SHARK_CLIPS_RIGHT[][4] = {
+    {0, 0, 110, 46},
+    {110, 0, 110, 46},
+    {220, 0, 110, 46},
+    {330, 0, 110, 46},
+    {440, 0, 110, 46},
+    {550, 0, 110, 46},
+    {660, 0, 110, 46},
+    {770, 0, 110, 46},
+    {880, 0, 110, 46},
+    {990, 0, 110, 46},
+    {1100, 0, 110, 46},
+    {1210, 0, 110, 46},
+    {1320, 0, 110, 46},
+    {1430, 0, 110, 46},
+};
+const int SHARK_FRAMES_RIGHT = sizeof(SHARK_CLIPS_RIGHT)/sizeof(int)/4;
+
+const char*  LIONFISH_SPRITE_FILE = "image\\LionFish.png";
+const int LIONFISH_CLIPS[][4] = {
+    {0, 0, 100, 88},
+    {100, 0, 100, 88},
+    {200, 0, 100, 88},
+    {300, 0, 100, 88},
+    {400, 0, 100, 88},
+    {500, 0, 100, 88},
+    {600, 0, 100, 88},
+    {700, 0, 100, 88},
+    {800, 0, 100, 88},
+    {900, 0, 100, 88},
+    {1000, 0, 100, 88},
+    {1100, 0, 100, 88},
+    {1200, 0, 100, 88},
+    {1300, 0, 100, 88},
+};
+const int LIONFISH_FRAMES = sizeof(LIONFISH_CLIPS)/sizeof(int)/4;
+
+const char*  LIONFISH_SPRITE_FILE_RIGHT = "image\\LionFishRight.png";
+const int LIONFISH_CLIPS_RIGHT[][4] = {
+    {0, 0, 100, 88},
+    {100, 0, 100, 88},
+    {200, 0, 100, 88},
+    {300, 0, 100, 88},
+    {400, 0, 100, 88},
+    {500, 0, 100, 88},
+    {600, 0, 100, 88},
+    {700, 0, 100, 88},
+    {800, 0, 100, 88},
+    {900, 0, 100, 88},
+    {1000, 0, 100, 88},
+    {1100, 0, 100, 88},
+    {1200, 0, 100, 88},
+    {1300, 0, 100, 88},
+};
+const int LIONFISH_FRAMES_RIGHT = sizeof(LIONFISH_CLIPS_RIGHT)/sizeof(int)/4;
+
 #endif

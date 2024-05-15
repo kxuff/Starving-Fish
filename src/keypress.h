@@ -24,19 +24,19 @@ struct Input{
     }
 
     void getInput(SDL_Event e){
-        switch (e.type){
-            case SDL_QUIT:
+            switch (e.type){
+                case SDL_QUIT:
                     exit(0);
-                break;
-            case SDL_KEYDOWN:
+                    break;
+                case SDL_KEYDOWN:
                     doKeyDown(&e.key);
-                break;
-            case SDL_KEYUP:
+                    break;
+                case SDL_KEYUP:
                     doKeyUp(&e.key);
-                break;
-            default:
-                break;
-        }
+                    break;
+                default:
+                    break;
+            }
     }
 };
 

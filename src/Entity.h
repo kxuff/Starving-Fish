@@ -5,14 +5,11 @@
 using namespace std;
 
 struct Entity {
-    double x, y, dx, dy, health, w, h, flipstatus = 0, caneat = 0;
+    double x, y, dx, dy, health, w, h, flipstatus = 0, caneat = 0, explode = 0;
     SDL_Texture* texture;
     Sprite moveleft, moveright, biteright, biteleft;
     bool vacham = false;
     bool right = true;
-    bool overlap(Entity* other) {
-        return (max(x, other->x) < min(x + w, other->x + other->w))&& (max(y, other->y) < min(y + h, other->y + other->h));
-	}
 	void move() {
 	    x += dx;
 	    y += dy;
