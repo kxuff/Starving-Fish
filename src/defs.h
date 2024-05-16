@@ -107,18 +107,17 @@ const int PLAYER_BITE_CLIPS[][4] = {
     {100, 0, 50, 50},
     {150, 0, 50, 50},
     {200, 0, 50, 50},
-    {250, 0, 50, 50},
 
 };
 const int PLAYER_BITE_FRAMES = sizeof(PLAYER_BITE_CLIPS)/sizeof(int)/4;
 
 const char*  PLAYER_BITE_SPRITE_FILE_RIGHT = "image\\PlayerRight.png";
 const int PLAYER_BITE_CLIPS_RIGHT[][4] = {
-    {1600, 0, 50, 50},
     {1550, 0, 50, 50},
     {1500, 0, 50, 50},
     {1450, 0, 50, 50},
     {1400, 0, 50, 50},
+    {1350, 0, 50, 50},
 };
 const int PLAYER_BITE_FRAMES_RIGHT = sizeof(PLAYER_BITE_CLIPS_RIGHT)/sizeof(int)/4;
 
@@ -313,5 +312,14 @@ const int LIONFISH_CLIPS_RIGHT[][4] = {
     {1300, 0, 100, 88},
 };
 const int LIONFISH_FRAMES_RIGHT = sizeof(LIONFISH_CLIPS_RIGHT)/sizeof(int)/4;
+
+const char*  EXPLODE_SPRITE_FILE = "image\\Explosion.png";
+const int EXPLODE_CLIPS[][4] = {
+    {0, 0, 155, 110},
+    {155, 0, 155, 110},
+    {310, 0, 155, 110},
+    {465, 0, 155, 110},
+};
+const int EXPLODE_FRAMES = sizeof(EXPLODE_CLIPS)/sizeof(int)/4;
 
 #endif

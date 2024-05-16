@@ -7,6 +7,13 @@
 struct Input{
     int keyboard[MAX_KEYBOARD_KEYS];
 
+    void SetBegin()
+    {
+        for(int i=0;i<MAX_KEYBOARD_KEYS;i++){
+            keyboard[i] = 0;
+        }
+
+    }
     void init(){
         memset(&keyboard, 0, sizeof(keyboard));
     }
@@ -24,19 +31,19 @@ struct Input{
     }
 
     void getInput(SDL_Event e){
-            switch (e.type){
-                case SDL_QUIT:
-                    exit(0);
-                    break;
-                case SDL_KEYDOWN:
-                    doKeyDown(&e.key);
-                    break;
-                case SDL_KEYUP:
-                    doKeyUp(&e.key);
-                    break;
-                default:
-                    break;
-            }
+        switch (e.type){
+            case SDL_QUIT:
+                exit(0);
+                break;
+            case SDL_KEYDOWN:
+                doKeyDown(&e.key);
+                break;
+            case SDL_KEYUP:
+                doKeyUp(&e.key);
+                break;
+            default:
+                break;
+        }
     }
 };
 

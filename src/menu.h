@@ -16,7 +16,7 @@ struct Menu {
     Mix_Chunk *OverSound;
     int mouse_x, mouse_y;
     SDL_Color textColor1, textColor2, textColor3, textColor4;
-    TTF_Font* textTitle1, *textScore, *textGameover, *textWingame;
+    TTF_Font* textTitle1, *textScore, *textGameover, *textWingame, *textScore2;
     stringstream Titlegame1, GameoverText, scoreText;
     void init(Graphics &graphics) {
         background_menu = graphics.loadTexture("background\\back_menu.png");
@@ -24,7 +24,7 @@ struct Menu {
         start1 = graphics.loadTexture("Menu\\start_game.png");
         start2 = graphics.loadTexture("Menu\\start_game_2.png");
         exit1 = graphics.loadTexture("Menu\\exit.png");
-        exit2 = graphics.loadTexture("Menu\\exit_2.png");
+        exit2 = graphics.loadTexture("Men\\exit_2.png");
         highscore1 = graphics.loadTexture("Menu\\high_score.png");
         highscore2 = graphics.loadTexture("Menu\\high_score_2.png");
         back_option = graphics.loadTexture("background\\option_back.png");
@@ -46,9 +46,10 @@ struct Menu {
         Shark = graphics.loadTexture("image\\SharkImage.png");
         option = graphics.loadTexture("Menu\\option.png");
         option_2 = graphics.loadTexture("Menu\\option_2.png");
-        OverSound = graphics.loadSound("asset\\gameover.png");
+        OverSound = graphics.loadSound("asset\\gameover.mp3");
         textTitle1 = graphics.loadFont(TITLE_IMG, 90);
         textScore = graphics.loadFont(SCORE_IMG, 30);
+        textScore2 = graphics.loadFont(SCORE_IMG, 40);
         textGameover = graphics.loadFont(GAMEOVER_IMG, 60);
         textWingame = graphics.loadFont(GAMEOVER_IMG, 40);
         textColor1 = {0, 250, 150, 200};
@@ -106,6 +107,10 @@ struct Menu {
         GameoverText << "GAME OVER";
         TextureGameover = graphics.loadTextTexture(GameoverText.str().c_str(), textColor4, textGameover);
         graphics.renderTexture(TextureGameover, 300, 230);
+//        textScore2.str("");
+//        textScore2 << "Score: " << to_string(game.score);
+//        ScoreTexture = graphics.loadTextTexture(scoreText.str().c_str(), textColor, textFont);
+//        graphics.renderTexture(ScoreTextTexture, 10, 10);
     }
     void drawWingame(Graphics &graphics) {
         graphics.renderTexture(back_option, 0, 0);
@@ -245,6 +250,8 @@ struct Menu {
             case SDL_MOUSEBUTTONDOWN:
                 if ( mouse_x >= SCREEN_WIDTH/2 - 30&& mouse_x <= SCREEN_WIDTH/2 + 40 && mouse_y >= 380 && mouse_y <= 450) {
                     game.status = 0;
+//                    Mix_VolumeMusic(0);
+//                    Mix_VolumeMusic(MIX_MAX_VOLUME);
                 }
                 break;
             }

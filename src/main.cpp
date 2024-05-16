@@ -36,8 +36,10 @@ int main(int argc, char *argv[])
     while (true) {
         graphics.prepareScene();
         if(game.status == 0) {
+            inputgame.SetBegin();
             game.health = HEALTH;
             game.score = 0;
+            game.player.setBegin();
             menu.drawMenu(graphics);
             menu.doMenu(game, graphics);
             game.Minnow.clear();
