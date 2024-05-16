@@ -19,6 +19,16 @@
 #define SCORE_LIONFISH 700
 #define SCORE_SHARK 900
 #define DIS_BOMB 150
+#define EAT_MINNOW 5
+#define EAT_BARRA 6
+#define EAT_ORCA 7
+#define EAT_MARLIN 8
+#define EAT_LIONFISH 9
+#define EAT_SHARK 10
+#define PLAYER_SPEED 3.5
+#define BOT_SPEED 3
+
+
 
 const int minnowposx[2] = {0,SCREEN_WIDTH};
 const char*  PLAYER_SPRITE_FILE = "image\\Player.png";

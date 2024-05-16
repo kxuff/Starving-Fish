@@ -37,16 +37,10 @@ int main(int argc, char *argv[])
         graphics.prepareScene();
         if(game.status == 0) {
             inputgame.SetBegin();
-            game.health = HEALTH;
-            game.score = 0;
             game.player.setBegin();
             menu.drawMenu(graphics);
             menu.doMenu(game, graphics);
-            game.Minnow.clear();
-            game.Barra.clear();
-            game.Orca.clear();
-            game.Marlin.clear();
-            game.Bomb.clear();
+            game.setBegin();
         }
         if(game.status == 1) {
             graphics.renderTexture(background, 0, 0);

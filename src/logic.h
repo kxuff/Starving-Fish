@@ -28,6 +28,17 @@ struct logic {
     TTF_Font* textFont, *textFontHighScore, *textHealth;
     stringstream scoreText;
 
+    void setBegin() {
+        Minnow.clear();
+        Barra.clear();
+        Orca.clear();
+        Marlin.clear();
+        Lionfish.clear();
+        Shark.clear();
+        Bomb.clear();
+        score = 0, health = HEALTH;
+    }
+
     void InitGame(Graphics &graphics) {
         MinnowTexture = graphics.loadTexture(MINNOW_SPRITE_FILE);
         PlayerTexture = graphics.loadTexture(PLAYER_SPRITE_FILE);
@@ -66,8 +77,8 @@ struct logic {
         player.y = SCREEN_WIDTH/2;
         player.w = 50;
         player.h = 45;
-        player.dx = 3.5;
-        player.dy = 3.5;
+        player.dx = PLAYER_SPEED;
+        player.dy = PLAYER_SPEED;
         player.health = 50;
 
         player.moveleft.RenderFish = 4;
@@ -88,8 +99,8 @@ struct logic {
         Entity *bot = new Entity();
         bot->x = minnowposx[rand() % 2];
         bot->y = rand() % SCREEN_HEIGHT;
-        bot->dx = 3;
-        bot->dy = 3;
+        bot->dx = BOT_SPEED;
+        bot->dy = BOT_SPEED;
 
         bot->moveleft.RenderFish = 4;
         bot->moveleft.init(MinnowTexture, MINNOW_FRAMES, MINNOW_CLIPS);
@@ -103,8 +114,8 @@ struct logic {
         Entity *bot = new Entity();
         bot->x = minnowposx[rand() % 2];
         bot->y = rand() % SCREEN_HEIGHT;
-        bot->dx = 3;
-        bot->dy = 3;
+        bot->dx = BOT_SPEED;
+        bot->dy = BOT_SPEED;
 
         bot->moveleft.RenderFish = 4;
         bot->moveleft.init(BarraTexture, BARRA_FRAMES, BARRA_CLIPS);
@@ -118,8 +129,8 @@ struct logic {
         Entity *bot = new Entity();
         bot->x = minnowposx[rand() % 2];
         bot->y = rand() % SCREEN_HEIGHT;
-        bot->dx = 3;
-        bot->dy = 3;
+        bot->dx = BOT_SPEED;
+        bot->dy = BOT_SPEED;
 
         bot->moveleft.RenderFish = 4;
         bot->moveleft.init(OrcaTexture, ORCA_FRAMES, ORCA_CLIPS);
@@ -133,8 +144,8 @@ struct logic {
         Entity *bot = new Entity();
         bot->x = minnowposx[rand() % 2];
         bot->y = rand() % SCREEN_HEIGHT;
-        bot->dx = 3;
-        bot->dy = 3;
+        bot->dx = BOT_SPEED;
+        bot->dy = BOT_SPEED;
 
         bot->moveleft.RenderFish = 4;
         bot->moveleft.init(MarlinTexture, MARLIN_FRAMES, MARLIN_CLIPS);
@@ -148,8 +159,8 @@ struct logic {
         Entity *bot = new Entity();
         bot->x = minnowposx[rand() % 2];
         bot->y = rand() % SCREEN_HEIGHT;
-        bot->dx = 3;
-        bot->dy = 3;
+        bot->dx = BOT_SPEED;
+        bot->dy = BOT_SPEED;
 
         bot->moveleft.RenderFish = 4;
         bot->moveleft.init(LionfishTexture, LIONFISH_FRAMES, LIONFISH_CLIPS);
@@ -163,8 +174,8 @@ struct logic {
         Entity *bot = new Entity();
         bot->x = minnowposx[rand() % 2];
         bot->y = rand() % SCREEN_HEIGHT;
-        bot->dx = 3;
-        bot->dy = 3;
+        bot->dx = BOT_SPEED;
+        bot->dy = BOT_SPEED;
 
         bot->moveleft.RenderFish = 4;
         bot->moveleft.init(SharkTexture, SHARK_FRAMES, SHARK_CLIPS);
@@ -219,10 +230,6 @@ struct logic {
                 InitMarlin();
                 MarlinTime = SDL_GetTicks();
             }
-            if(SDL_GetTicks() - BombTime >= 2500) {
-                InitBomb();
-                BombTime = SDL_GetTicks();
-            }
         }
         else if(score <= SCORE_ORCA) {
             if(SDL_GetTicks() - MinnowTime >= 2000) {
@@ -263,7 +270,7 @@ struct logic {
                 InitLionFish();
                 LionfishTime = SDL_GetTicks();
             }
-            if(SDL_GetTicks() - BombTime >= 2500) {
+            if(SDL_GetTicks() - BombTime >= 3500) {
                 InitBomb();
                 BombTime = SDL_GetTicks();
             }
@@ -290,7 +297,7 @@ struct logic {
                 InitShark();
                 SharkTime = SDL_GetTicks();
             }
-            if(SDL_GetTicks() - BombTime >= 2000) {
+            if(SDL_GetTicks() - BombTime >= 3000) {
                 InitBomb();
                 BombTime = SDL_GetTicks();
             }
@@ -312,7 +319,7 @@ struct logic {
                 InitShark();
                 SharkTime = SDL_GetTicks();
             }
-            if(SDL_GetTicks() - BombTime >= 1500) {
+            if(SDL_GetTicks() - BombTime >= 3000) {
                 InitBomb();
                 BombTime = SDL_GetTicks();
             }
@@ -358,8 +365,9 @@ struct logic {
                 }
             }
             if(sqrt((bot->x - player.x) * (bot->x - player.x) + (bot->y - player.y) * (bot->y - player.y)) < 25) {
-                    score += 10;
+                    score += EAT_MINNOW;
                     player.caneat = 1;
+                    player.hitting = true;
                 }
             if(bot->offScreen() || sqrt((bot->x - player.x) * (bot->x - player.x) + (bot->y - player.y) * (bot->y - player.y)) < 25) {
                     delete bot;
@@ -406,8 +414,9 @@ struct logic {
             }
             if(sqrt((bot->x - player.x) * (bot->x - player.x) + (bot->y - player.y) * (bot->y - player.y)) < 25 && !bot->vacham ) {
                 if(score >= SCORE_BARRA) {
-                    score += 10;
+                    score += EAT_BARRA;
                     player.caneat = 1;
+                    player.hitting = true;
                 }
                 else{
                         health -= 10;
@@ -459,8 +468,9 @@ struct logic {
             }
             if(sqrt((bot->x - player.x) * (bot->x - player.x) + (bot->y - player.y) * (bot->y - player.y)) < 25 && !bot->vacham ) {
                 if(score >= SCORE_ORCA) {
-                    score += 8;
+                    score += EAT_ORCA;
                     player.caneat = 1;
+                    player.hitting = true;
                 }
                 else{
                         health -= 10;
@@ -512,8 +522,9 @@ struct logic {
             }
             if(sqrt((bot->x - player.x) * (bot->x - player.x) + (bot->y - player.y) * (bot->y - player.y)) < 25 && !bot->vacham ) {
                 if(score >= SCORE_MARLIN) {
-                    score += 8;
+                    score += EAT_MARLIN;
                     player.caneat = 1;
+                    player.hitting = true;
                 }
                 else{
                         health -= 10;
@@ -565,8 +576,9 @@ struct logic {
             }
             if(sqrt((bot->x - player.x) * (bot->x - player.x) + (bot->y - player.y) * (bot->y - player.y)) < 25 && !bot->vacham ) {
                 if(score >= SCORE_LIONFISH) {
-                    score += 8;
+                    score += EAT_LIONFISH;
                     player.caneat = 1;
+                    player.hitting = true;
                 }
                 else{
                         health -= 10;
@@ -618,8 +630,9 @@ struct logic {
             }
             if(sqrt((bot->x - player.x) * (bot->x - player.x) + (bot->y - player.y) * (bot->y - player.y)) < 25 && !bot->vacham ) {
                 if(score >= SCORE_SHARK) {
-                    score += 8;
+                    score += EAT_SHARK;
                     player.caneat = 1;
+                    player.hitting = true;
                 }
                 else{
                         health -= 10;
@@ -728,7 +741,10 @@ struct logic {
             graphics.renderTexture(BombTexture, bot->x, bot->y);
         }
         if(player.caneat == 1) {
-            graphics.playSound(BiteSound);
+            if(player.hitting) {
+                player.hitting = false;
+                graphics.playSound(BiteSound);
+            }
             if(player.right) {
                 player.biteright.tick();
                 graphics.render(player.x, player.y, player.biteright);
