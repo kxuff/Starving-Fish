@@ -53,4 +53,4 @@ Health bar is displayed on the top-right corner of the screen.
 - [Lazy foo](https://lazyfoo.net/tutorials/SDL/) for their tutorials.
 
 # Desired Score
-- 9.0 - 9.75
+- 9.5 - 9.75
