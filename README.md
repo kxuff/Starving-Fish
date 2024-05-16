@@ -2,11 +2,11 @@
 
 # Information
 
-Name: Phạm Công Khang
-D.O.B: 20/09/2005
-Student ID: 23021595
-Class: K68CA1
-Email: phamcongkhang209@gmail.com
+  Name: Phạm Công Khang
+  D.O.B: 20/09/2005
+  Student ID: 23021595
+  Class: K68CA1
+  Email: phamcongkhang209@gmail.com
 
 # Gameplay
 
