@@ -19,7 +19,7 @@ Up, down, left, right arrow keys to move your fish.
 # Score
 
 You will receive different points when you eat different fishes:   
-![alt](https://github.com/kxuff/Starving-Fish/blob/main/image/MinnowImage.png) : 5 points  
+![alt](https://github.com/kxuff/Starving-Fish/blob/main/image/MinnowImage.png)     : 5 points  
 ![alt](https://github.com/kxuff/Starving-Fish/blob/main/image/BarraImage.png) : 6 points  
 ![alt](https://github.com/kxuff/Starving-Fish/blob/main/image/OrcaImage.png) : 7 points  
 ![alt](https://github.com/kxuff/Starving-Fish/blob/main/image/MarlinImage.png) : 8 points  
