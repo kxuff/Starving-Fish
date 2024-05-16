@@ -19,4 +19,13 @@ Up, down, left, right arrow keys to move your fish.
 # Score
 
 You will receive different points when you eat different fishes:   
-![alt](https://github.com/kxuff/Starving-Fish/blob/main/image/BarraImage.png) : 6 points
+![alt](https://github.com/kxuff/Starving-Fish/blob/main/image/BarraImage.png) : 6 points  
+![alt](https://github.com/kxuff/Starving-Fish/blob/main/image/OrcaImage.png) : 7 points  
+![alt](https://github.com/kxuff/Starving-Fish/blob/main/image/MarlinImage.png) : 8 points  
+![alt](https://github.com/kxuff/Starving-Fish/blob/main/image/LionfishImage.png) : 9 points  
+![alt](https://github.com/kxuff/Starving-Fish/blob/main/image/SharkImage.png) : 10 points  
+The score is displayed on the top-left corner of the screen.    
+
+# Health
+
+Health bar is displayed on the top-right corner of the screen.  
