@@ -51,6 +51,7 @@ Health bar is displayed on the top-right corner of the screen.
 
 - All my teachers in course INT2215 22 for their knowledge.
 - [Lazy foo](https://lazyfoo.net/tutorials/SDL/) for their tutorials.
+- Spriter resources for sprites.
 
 # Desired Score
 - 9.5 - 9.75
