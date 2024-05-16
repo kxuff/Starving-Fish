@@ -29,3 +29,24 @@ The score is displayed on the top-left corner of the screen.
 # Health
 
 Health bar is displayed on the top-right corner of the screen.  
+
+# Remarkable features
+
+- Many different kinds of fish.  
+- Size of your fish can be changed.  
+- Bots can follow position of your fish.
+- When a fish can be eaten, it will turn around when it move near to your fish.
+- There is a sound effect when your fish eats another fish and your fish collides with the bomb.
+- Bots appear randomly base on your score. The higher your score is, the more bigger fishes appear.
+
+# I used
+
+- library of SDL2.  
+- Spriters resource for sprites.  
+- Fonts for text in my game.  
+- Sound effect.  
+
+# Special Thanks to
+
+- All my teachers in course INT2215 22 for their knowledge.
+- [Lazy foo](https://lazyfoo.net/tutorials/SDL/) for their tutorials.  
