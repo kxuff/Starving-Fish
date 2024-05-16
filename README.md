@@ -54,4 +54,4 @@ Health bar is displayed on the top-right corner of the screen.
 - Spriter resources for sprites.
 
 # Desired Score
-- 9.5 - 9.75
+- 9.0 - 9.75
