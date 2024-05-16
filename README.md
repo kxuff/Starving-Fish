@@ -10,7 +10,7 @@
 
 # Gameplay
 
-Move the fish to eat other fishes. If your fish eat the valid fish, it will receive points corresponding to different fish. By contrast, if you eat illegal fish or bomb, you will lose its life. If your fish reach 1000 points, you will win this game. The more fishes you eat, the bigger your fish'size is. On the other hand, you will lose when your fish's life runs out.
+Move the fish to eat other fishes. If your fish eats the valid fish, it will receive points corresponding to different fish. By contrast, if your fish eats illegal fish or bomb, you will lose its life. If your fish reaches 1000 points, you will win this game. The more fishes you eat, the bigger your fish'size is. On the other hand, you will lose when your fish's life runs out.
 
 # Control
 
