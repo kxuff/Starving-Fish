@@ -14,8 +14,8 @@ Move the fish to eat other fishes. If your fish eats the valid fish, it will rec
 
 # Control
 
-Up, down, left, right arrow keys to move your fish.
-
+- Up, down, left, right arrow keys or W, S, A, D to move your fish.  
+- press the button on the bottom-right corner to turn on/off sound.  
 # Score
 
 You will receive different points when you eat different fishes:   
