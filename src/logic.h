@@ -20,7 +20,7 @@ struct logic {
     *ScoreTextTexture, *BarraTextureRight, *OrcaTexture, *OrcaTextureRight, *MarlinTexture, *MarlinTextureRight, *pause, *pause_2,
     *healthbar, *healthbarframe, *BombTexture, *SharkTexture, *SharkTextureRight, *LionfishTexture, *LionfishTextureRight, *ExplodeTexture;
     Mix_Music *MusicGame;
-    Mix_Chunk *BiteSound, *ExplosionSound;
+    Mix_Chunk *BiteSound, *ExplosionSound, *HurtSound;
     list<Entity*> Minnow, Barra, Orca, Marlin, Bomb, Shark, Lionfish;
     Uint32 MinnowTime = 0, BarraTime = 0, OrcaTime = 0, MarlinTime = 0, BombTime = 0, SharkTime = 0, LionfishTime = 0;
     int score = 0, status = 0, health = HEALTH, mouse_x, mouse_y;
@@ -65,6 +65,7 @@ struct logic {
         MusicGame = graphics.loadMusic("asset\\underwater.mp3");
         BiteSound = graphics.loadSound("asset\\bite.mp3");
         ExplosionSound = graphics.loadSound("asset\\explosion.mp3");
+        HurtSound = graphics.loadSound("asset\\hurt.mp3");
         textFont = graphics.loadFont(SCORE_IMG, 25);
         textFontHighScore = graphics.loadFont(SCORE_IMG, 50);
         textHealth = graphics.loadFont(SCORE_IMG, 25);
@@ -211,7 +212,7 @@ struct logic {
         }
     }
 
-    void doGame(int KeyInput[]) {
+    void doGame(int KeyInput[], Graphics &graphics) {
         doPlayer(KeyInput);
         if(score <= SCORE_BARRA) {
             if(SDL_GetTicks() - MinnowTime >= 800) {
@@ -325,11 +326,11 @@ struct logic {
             }
         }
         doMinnow();
-        doBarra();
-        doOrca();
-        doMarlin();
-        doLionfish();
-        doShark();
+        doBarra(graphics);
+        doOrca(graphics);
+        doMarlin(graphics);
+        doLionfish(graphics);
+        doShark(graphics);
         doBomb();
     }
 
@@ -377,7 +378,7 @@ struct logic {
         }
     }
 
-    void doBarra() {
+    void doBarra(Graphics &graphics) {
         auto it = Barra.begin();
         while(it != Barra.end()) {
             auto tmp = it;
@@ -421,6 +422,7 @@ struct logic {
                 else{
                         health -= 10;
                         bot->vacham = true;
+                        graphics.playSound(HurtSound);
                 }
             }
             if(bot->offScreen() || sqrt((bot->x - player.x) * (bot->x - player.x) + (bot->y - player.y) * (bot->y - player.y)) < 25 && score >= SCORE_BARRA) {
@@ -431,7 +433,7 @@ struct logic {
         }
     }
 
-    void doOrca() {
+    void doOrca(Graphics &graphics) {
         auto it = Orca.begin();
         while(it != Orca.end()) {
             auto tmp = it;
@@ -475,6 +477,7 @@ struct logic {
                 else{
                         health -= 10;
                         bot->vacham = true;
+                        graphics.playSound(HurtSound);
                 }
             }
             if(bot->offScreen() || sqrt((bot->x - player.x) * (bot->x - player.x) + (bot->y - player.y) * (bot->y - player.y)) < 25 && score >= SCORE_ORCA) {
@@ -485,7 +488,7 @@ struct logic {
         }
     }
 
-    void doMarlin() {
+    void doMarlin(Graphics &graphics) {
         auto it = Marlin.begin();
         while(it != Marlin.end()) {
             auto tmp = it;
@@ -529,6 +532,7 @@ struct logic {
                 else{
                         health -= 10;
                         bot->vacham = true;
+                        graphics.playSound(HurtSound);
                 }
             }
             if(bot->offScreen() || sqrt((bot->x - player.x) * (bot->x - player.x) + (bot->y - player.y) * (bot->y - player.y)) < 25 && score >= SCORE_MARLIN) {
@@ -539,7 +543,7 @@ struct logic {
         }
     }
 
-    void doLionfish() {
+    void doLionfish(Graphics &graphics) {
         auto it = Lionfish.begin();
         while(it != Lionfish.end()) {
             auto tmp = it;
@@ -583,6 +587,7 @@ struct logic {
                 else{
                         health -= 10;
                         bot->vacham = true;
+                        graphics.playSound(HurtSound);
                 }
             }
             if(bot->offScreen() || sqrt((bot->x - player.x) * (bot->x - player.x) + (bot->y - player.y) * (bot->y - player.y)) < 25 && score >= SCORE_LIONFISH) {
@@ -593,7 +598,7 @@ struct logic {
         }
     }
 
-    void doShark() {
+    void doShark(Graphics &graphics) {
         auto it = Shark.begin();
         while(it != Shark.end()) {
             auto tmp = it;
@@ -637,6 +642,7 @@ struct logic {
                 else{
                         health -= 10;
                         bot->vacham = true;
+                        graphics.playSound(HurtSound);
                 }
             }
             if(bot->offScreen() || sqrt((bot->x - player.x) * (bot->x - player.x) + (bot->y - player.y) * (bot->y - player.y)) < 25 && score >= SCORE_SHARK) {

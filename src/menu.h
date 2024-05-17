@@ -168,6 +168,7 @@ struct Menu {
                     Mix_VolumeChunk(game.ExplosionSound, 0);
                     Mix_VolumeChunk(OverSound, 0);
                     Mix_VolumeChunk(WinSound, 0);
+                    Mix_VolumeChunk(game.HurtSound, 0);
                 }
                 else if(stat == 1) {
                     Mix_VolumeMusic(MIX_MAX_VOLUME);
@@ -175,6 +176,7 @@ struct Menu {
                     Mix_VolumeChunk(game.ExplosionSound, MIX_MAX_VOLUME);
                     Mix_VolumeChunk(OverSound, MIX_MAX_VOLUME);
                     Mix_VolumeChunk(WinSound, MIX_MAX_VOLUME);
+                    Mix_VolumeChunk(game.HurtSound, MIX_MAX_VOLUME);
                 }
                 break;
             }
@@ -264,6 +266,7 @@ struct Menu {
                     Mix_VolumeChunk(game.ExplosionSound, 0);
                     Mix_VolumeChunk(OverSound, 0);
                     Mix_VolumeChunk(WinSound, 0);
+                    Mix_VolumeChunk(game.HurtSound, 0);
                 }
                 else if(stat == 1) {
                     Mix_VolumeMusic(MIX_MAX_VOLUME);
@@ -271,6 +274,7 @@ struct Menu {
                     Mix_VolumeChunk(game.ExplosionSound, MIX_MAX_VOLUME);
                     Mix_VolumeChunk(OverSound, MIX_MAX_VOLUME);
                     Mix_VolumeChunk(WinSound, MIX_MAX_VOLUME);
+                    Mix_VolumeChunk(game.HurtSound, MIX_MAX_VOLUME);
                 }
                 break;
             }

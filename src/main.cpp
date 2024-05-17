@@ -45,7 +45,7 @@ int main(int argc, char *argv[])
         if(game.status == 1) {
             graphics.renderTexture(background, 0, 0);
             game.drawGame(graphics);
-            game.doGame(inputgame.keyboard);
+            game.doGame(inputgame.keyboard, graphics);
             SDL_GetMouseState(&mouse_x, &mouse_y);
             if ( mouse_x >= SCREEN_WIDTH/2 && mouse_x <= SCREEN_WIDTH/2 + 30 && mouse_y >= 10 && mouse_y <= 40){
                 graphics.renderTexture(pause_2, SCREEN_WIDTH/2, 10);
