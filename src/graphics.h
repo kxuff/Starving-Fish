@@ -12,8 +12,7 @@
 struct Sprite {
     SDL_Texture* texture;
     std::vector<SDL_Rect> clips;
-    int currentFrame = 0;
-    int RenderFish = 4, cntFish = 0;
+    int currentFrame = 0, renderFish = 4, cntFish = 0;
 
     void init(SDL_Texture* _texture, int frames, const int _clips [][4]) {
         texture = _texture;
